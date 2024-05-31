@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>HTML5 Canvas sample01</title>
+   <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+               integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
+               crossorigin="anonymous"></script>
+   <script>
+       const bound = 21; // 21이 최대
+       var canvas;
+       var context;
+       var particles = new Array();
+       var curWidth = window.innerWidth;
+       var curHeight = window.innerHeight;
+     
+       $(document).ready(function() {
+           var canvas = document.querySelector("#myCanvas");
+           canvas.setAttribute("width", curWidth - bound);
+           canvas.setAttribute("height", curHeight - bound);
+           context = canvas.getContext("2d");
+
+           for (i = 0; i < 500; i++) {
+               particles[i] = new Particle();
+           }
+
+           setInterval(gameLoop, 30);
+
+           $(window).resize(function () {
+               curWidth = window.innerWidth;
+               curHeight = window.innerHeight;
+               canvas.setAttribute("width", curWidth - bound);
+               canvas.setAttribute("height", curHeight - bound);
+           });
+       });
+
+       function Particle() {
+           this.color = randomColor();
+           this.x = Math.random() * curWidth;
+           this.y = Math.random() * curHeight;
+           this.vx = Math.random() * 10 - Math.random() * 5;
+           this.vy = Math.random() * 10 - Math.random() * 5;
+
+           this.draw = function() {
+               context.fillStyle = this.color;
+               context.beginPath();
+               context.arc(this.x, this.y, 5, 0, Math.PI * 2, true);
+               context.fill();
+           }
+           this.move = function() {
+               this.x += this.vx;
+               this.y += this.vy;
+           }
+           this.checkBouce = function() { // 충돌처리
+               var willX = this.x + this.vx;
+               var willY = this.y + this.vy;
+
+               if (willX < 0 || willX > curWidth) {
+                   this.vx *= -1;
+                   this.move();
+               }
+               if (willY < 0 || willY > curHeight) {
+                   this.vy *= -1;
+                   this.move();
+               }
+           }
+       }
+
+       function randomColor() {
+           var r = Math.round(Math.random() * 255);
+           var g = Math.round(Math.random() * 255);
+           var b = Math.round(Math.random() * 255);
+           return "rgb(" + r + "," + g + "," + b + ")";
+       }
+
+       function gameLoop() {
+           for (var i in particles) {
+               var particle = particles[i];
+               particle.checkBouce();
+               particle.move();
+               particle.draw();
+           }
+       }
+   </script>
+</head>
+<body>
+   <canvas id="myCanvas" width="1024" height="768" />
+</body>
+</html>
