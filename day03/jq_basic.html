@@ -3,31 +3,43 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>jQuery Basic</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!-- 나는 이제부터 jQuery를 사용하겠다 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
+        // VanillaScript로 만든 DOM 제어
+        /*window.onload = function() {
+            var headers = document.querySelectorAll('h1');
+
+            for (var i = 0; i < headers.length; i++) {
+                var header = headers[i];
+                header.style.color = 'orange';
+                header.style.backgroundColor = 'crimson'; // css background-color
+            }
+        }*/
         $(document).ready(function() {
             $('h1').css('color', 'orange');
             $('h1').css('background-color', 'crimson');
 
-            var charset = $('meta').attr('charset');
-            console.log(charset); // Corrected from 'src' to 'charset'
-
+            var charset = $('meta').attr('charset'); // getAttribute()
+            console.log(charset);
+            // setAttribute()
             $('img').attr('src', 'https://via.placeholder.com/50x100');
-           // $('img').attr('width', '100px');
+            //$('img').attr('width', '100px');
             //$('img').attr('height', '100px');
+            // 
             $('img').attr({
                 src: function(index) {
-                    var size = (index + 1) * 100;
-                    return 'https://via.placeholder.com/' + size + 'x100';
+                    var width = (index + 1) * 100;
+                    return 'https://via.placeholder.com/' + width + 'x100';
                 }
             });
+
             $('.box').css('margin', 10);
             $('.box').css('width', 90);
             $('.box').css('height', 90);
-            $('.box').css('background-color','crimson');
+            $('.box').css('background-color', 'crimson');
             $('.box').css('float', 'left');
         });
     </script>
@@ -47,6 +59,5 @@
         <div class="box"></div>
         <div class="box"></div>
     </div>
-
 </body>
 </html>

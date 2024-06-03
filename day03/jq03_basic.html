@@ -3,63 +3,64 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>jQuery Basic</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
+            // jQuery로 이벤트 적용하는 방법
             $('#obj').css({
                 width: 100,
                 height: 100,
                 'background-color': 'orange'
-            }).on('mouseover', function(){
+            }).on('mouseover', function() {
                 $(this).css('background-color', 'red');
-            }).on('mouseleave', function(){
+            }).on('mouseleave', function() {
                 $(this).css('background-color', 'orange');
-            }).on('click', function(){
-                $(this).css('border-radius', '50px');
-            }).on('click', function(){
                 $(this).css('border-radius', '0px');
+            }).on('click', function() {
+                $(this).css('background-color', 'blue');
+                $(this).css('border-radius', '50px');
             });
 
-
-            $('#push').click(function(){
-                alert('버튼을 클릭했습니다!');
+            // jQuery에는 js의 on을 빼고 이벤트를 구현할 수 있음.
+            $('#push').click(function() {
+                alert('버튼을 클릭했습니다!!');
             });
 
+            // jQuery의 강력한 기능
             $('#toggle').on('click', function() {
-            // fadeToggel, hide, fadeOut, slideToggle
-            // slow, normal, fast
-            $('.page').hide('slow');
+                // fadeToggle, hide, fadeOut, slideToggle
+                // slow, normal, fast
+                $('.page').slideToggle('slow');
+            });
+
+            $('#box').css({
+                width: 100,
+                height: 100,
+                'background-color': 'crimson'
+            }).animate({
+                width: 400,
+                opacity: 0.5, // 투명도
+            }, 2000).animate({
+                width: 100,
+                opacity: 1,               
+            }, 2000);
+            ;
         });
-
-        $('#box').css({
-            width: 100,
-            height: 100,
-            'backgroun-color': 'crimson'
-        }).animate({
-            width: 200,
-            height: 0.5,
-        }, 2000).animate({
-            width: 100,
-            opacity: 1,
-        }, 2000);
-    });
-
-        
-
     </script>
     <style>
-        * {margin: 10px auto;}
+        * { margin: 10px auto; }
     </style>
 </head>
 <body>
     <div id="obj"></div>
-    <button id = "push">클릭</button>
-    <button id = "toggel">토글</button>
+    <button id="push">클릭</button>
+    <button id="toggle">토글</button>
     <div class="page">
         <h1>Lorem ipsum dolor sit amet.</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quia animi ab repellat qui ipsa itaque, quam saepe perspiciatis, doloremque nulla sit laborum. Sit iste mollitia aliquam doloribus voluptate eligendi quaerat eos minus dolores veniam, atque, laborum, nobis blanditiis itaque enim accusamus aliquid? Est corporis expedita sequi facere nulla tempore a, maiores harum corrupti! Id modi a ea itaque deleniti quae. Veritatis, doloribus cupiditate eaque magni laboriosam dolores excepturi porro aspernatur explicabo beatae reiciendis fugiat tempora consectetur libero, possimus dolor earum consequuntur repudiandae aliquid unde assumenda culpa? Eos non sed nemo, quasi cupiditate, corrupti ab saepe maiores iusto recusandae quam?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem adipisci omnis cum, voluptatem aperiam dolorum vero odit laudantium maiores, modi possimus nisi, iste explicabo praesentium blanditiis quisquam excepturi. Sequi, at?</p>
     </div>
+    <div id="box"></div>
 </body>
 </html>
