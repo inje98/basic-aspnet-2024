@@ -14,82 +14,84 @@
 
         // 출력
         let res = 2 * radius * pi;
-        alert(2 * radius * pi);
+        // alert(res);
         // 콘솔출력(개발자 로그)
         console.log(res);
 
-        if (res > 100){
-            console.log('원의 둘레는 100보다 큽니다');
+        if (res > 100) {
+            console.log('원의 둘레는 100보다 큽니다.');
         } else {
-            console.log('원의 둘레는 100보다 작습니다');
+            console.log('원이 100보다 작습니다.');
         }
 
         let date = new Date();
         let year = date.getFullYear(); // 년도
         let month = date.getMonth() + 1; // 월
-        let day = date.getDate(); // 일
+        let day = date.getDate(); // 일 // getDay() 월요일1~일요일7
         let hour = date.getHours(); // 시
         let minute = date.getMinutes(); // 분
         let second = date.getSeconds(); // 초
         console.log(date);
-        console.log(year + '-' + month + '-' + day + '-' + hour + '-' + minute + '-' + second);
-        // if문 끝
+        console.log(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
+        // if문 끝!
 
-        // 배열변수 선언
-        let array = [300.9, false, 'String', [1,2,3], {'key': 'value', 'option':true}, function(){ alert('Hey');}]; 
-        console.log(array);
-
+        // 배열변수 선언 == 파이썬과 동일
+        let array = [300.9, false, 'String', [1,2,3], { 'key':'value', 'option':true }, function() { alert('Hey'); }];
+        console.log(array[0]);
         // let i = 0;
-        // while(i < array.length){
+        // while (i < array.length) {
         //     alert(array[i]);
         //     i++;
         // }
 
-        for( var i = 0; i < array.length; i++)
-        {
-            console.log(i + '번 출력' + array[i]);
+        for (var i = 0; i < array.length; i++) {
+            console.log(i + '번 출력: ' + array[i]);
         }
+        // 반복문 끝!
 
-        let fn1 = function(){
+        // 함수 시작!!
+        // 아래의 문법을 어려워하지 말것! 아무것도 아님!
+        let fn1 = function() {
             console.log('함수 fn1 실행!');
-            console.log('함수 종료!');
+            console.log('함수종료!!');
         }
-        console.log('타입 =' + typeof(fn1));
+        console.log('변수타입 = ' + typeof(fn1));
         fn1();
 
         function fn2() {
             console.log('함수 fn2 실행!');
-            console.log('함수 fn2 종료');
+            console.log('함수 fn2 종료!!');
         }
-        console.log('타입 =' + typeof(fn2));
+        console.log('타입 = ' + typeof(fn2));
         fn2();
 
-        // 함수 우선순위
-        var fn = function() {alert('fn10');};
-        var fn = function() {alert('fn20');}; // 덮어쓰니까 얘가 출력
+        // 함수 우선순위(Adv tip!)
+        var fn = function() { console.log('fn10'); }; // 얘는 실행안됨
+        var fn = function() { console.log('fn20'); }; // 얘가 실행됨
         fn();
 
-        var fm = function() {alert('fm10');}; // 이렇게 쓰는게 더 우선순위가 높아서 얘가 출력
-        function fm() {alert('fm20');}; 
+        var fm = function() { console.log('fm10'); }; // 얘가 실행됨
+        function fm() { console.log('fm20'); }; // 얘는 실행안됨
         fm();
 
         function ff(x) {
             return x * x;
         }
+
         console.log(ff(10));
-        // 콜백함수 (매개변수에 함수를 할당, 전달)
+        // 콜백함수(매개변수에 함수를 할당,전달)
         function callTenTimes(callback) {
-            for (var i = 0; i < 5; i++){
+            for (var i = 0; i < 5; i++) {
                 callback(); // 매개변수가 함수
             }
         }
 
         var callFunc = function() {
-            console.log("콜백 호출!!!");
+            console.log('콜백 호출!!!');
         };
         callTenTimes(callFunc);
 
-        // Javascript 객체
+        // Javascript 객체 = json
         let product = {
             품명 : '7D 건조망고',
             유형 : '당절임 건조과일',
@@ -97,21 +99,23 @@
             원산지 : '필리핀',
             가격 : 2500
         };
+
         console.log(product['품명']); // 배열처럼 사용
-        console.log(product.가격);
+        console.log(product.가격); // 클래스 속성처럼 사용
 
         for (var i in product) {
-            console.log(i + '->' + product[i]);
+            console.log(i + ' => ' + product[i]);
         }
 
-        // this
+        // this == 파이썬 self.
         let ironman = {
             name : '토니 스타크',
             proud : function(item) {
-                console.log(this.name + '는' + item + '이 많습니다.')
+                console.log(this.name + '는 ' + item + '이 많습니다.');
             }
         };
-        ironman.proud(' 돈');
+
+        ironman.proud('돈');
     </script>
 </head>
 <body>
