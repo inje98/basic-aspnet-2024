@@ -205,7 +205,19 @@ IoT 개발자과정 ASP.NET 리포지토리
     - 개인 웹페이지 클로닝
         - 로그인 화면
 
+
+        https://github.com/inje98/basic-aspnet-2024/assets/158007381/46170b44-94c8-42fc-a89f-6034cdd85e99
+
+
         - 스크롤
+
+
+        https://github.com/inje98/basic-aspnet-2024/assets/158007381/da6b39db-aadc-44ec-81cc-79e05ea99317
+
 
         - 3D 모델링 웹에 올리기
         
+
+        https://github.com/inje98/basic-aspnet-2024/assets/158007381/f5618173-af33-4e45-baee-7bddb69a25f0
+
+
