@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('./images/img2.jpg') no-repeat;
+    /* 밑에 두줄이 배경화면 크기 딱 맞춰주는거인듯 */
+    background-size: cover;
+    background-position: center;
+}
+
+
+header { /*<header> 태그 부분 (제일 상단) */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex; /* 옆으로 배열 */
+    justify-content: space-between; /*로고와 메뉴 사이 띄우기*/
+    align-items: center;/* 위아래 센터 */
+    z-index: 99;
+}
+
+.logo { /* <header>안 logo 클래스(h2), 로고 글자 */
+    font-size: 2em;
+    color: #fff;
+}
+
+.navigation a { /*<header>안 navigation 클래스 (nav) , 메뉴들*/
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500; /*글자 굵기*/
+    margin-left: 40px; /*메뉴들끼리 띄우기*/
+}
+
+.navigation a::after { /* 메뉴에 마우스 갖다댔을때 흰 밑줄 나오게 할건데 그 밑줄 작업인듯 */ 
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right; /* 원래는 오른쪽에서 부터 밑줄 생기게
+                                인데 밑에 after랑 연계돼서 왼쪽 시작 오른쪽 소멸이 되는듯 */
+    transform: scaleX(0); /* 마우스 대기전 밑줄 크기-> 0 이니까 밑줄 없다가*/
+    transition: transform .5s;
+}
+
+.navigation a:hover::after{
+    transform-origin: left;    /* 마우스 대면 왼쪽서 부터 밑줄 생기고*/
+    transform: scaleX(1); /* 마우스 대면 크기 1로, 1 저게 글자길이랑 배율인듯 2면 2배 이렇게*/
+}
+
+.navigation .btnLogin-popup { /*navigation 안에 btnLogin-popup클래스(버튼)*/
+    width: 130px;
+    height: 50px;
+    background: transparent; /* 배경색 뒤에 색 따라가는거 */
+    border: 2px solid #fff; /* 테두리 */
+    outline: none;
+    border-radius: 6px; /* 모서리 둥글게 */
+    cursor: pointer; /* 커서 갖다대면 손가락 */
+    font-size: 1.1em; /* 버튼 안 글자 크기 */
+    color: #fff; /* 글자 색*/
+    font-weight: 500;
+    margin-left: 40px; /* 왼쪽 마진 */
+    transition: .5s; /* 마우스 갖다대면 천천히 바뀌게 */
+}
+
+.navigation .btnLogin-popup:hover { /* 마우스 갖다대면 변하는거*/
+    background: #fff; /* 갖다대면 배경색 흰색 */
+    color: #162938; /* 갖다대면 글자 거의 검정 */
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center; /* 폼 안에 글자 가로 정렬*/
+    align-items: center; /* 위아래 정렬*/
+    overflow: hidden; /* 폼에 맞춰서 자르기 위해*/
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+    /* display: none; */
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box h2 {
+    font-size:  2em;
+    color: #162938;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938; /*밑줄*/
+    margin: 30px 0 ;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label, /* 입력란 클릭했을때 Email Password글자 위로 밀리는 애니메이션*/
+.input-box input:valid~label{
+    top: -5px; 
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em; /* 입력한 글자 크기*/
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.remember-forgot a { /* forgot password */
+    color: #162938;
+    text-decoration: none; 
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline; /* 마우스 갖다대면 밑줄 생기게*/
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.login-register {
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
