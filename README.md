@@ -210,6 +210,7 @@ IoT 개발자과정 ASP.NET 리포지토리
           https://github.com/hugoMGSung/basic-aspnet-2024/assets/59336331/2ecb5cdc-dd29-49a4-ad66-31f6174fa4c7
 - 개인 웹페이지 클로닝
 
+
     
 ## 8일차 
 - ASP.NET
@@ -255,7 +256,7 @@ IoT 개발자과정 ASP.NET 리포지토리
         - Java 계열도 Spring (Boot) MVC로 개발
         - MVC 개념도
 
-            <img src="https://raw.githubusercontent.com/hugoMGSung/basic-aspnet-2024/main/images/an0002.png" width="730">
+            <img src="https://raw.githubusercontent.com/inje98/basic-aspnet-2024/main/images/an0002.png" width="730">
 
         - 프론트엔드가 예전엔 스파게티코드가 무지 심했다면, 현재는 스파게티코드가 최소화 되어있음.(SpringBoot, Python flask든 모두 동일)
         - IIS Express Server - VS에서 ASP.NET 웹사이트를 운영하는 개발용 웹서버
