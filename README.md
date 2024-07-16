@@ -210,6 +210,20 @@ IoT 개발자과정 ASP.NET 리포지토리
           https://github.com/hugoMGSung/basic-aspnet-2024/assets/59336331/2ecb5cdc-dd29-49a4-ad66-31f6174fa4c7
 - 개인 웹페이지 클로닝
 
+  
+
+https://github.com/user-attachments/assets/5750dccf-5534-41ce-b12f-a124e37b6937
+
+
+
+
+https://github.com/user-attachments/assets/2dad4533-e094-4150-951c-f6ea268d15c0
+
+
+
+
+https://github.com/user-attachments/assets/bb688d12-e0d1-4eba-a240-fa577a2d4ff6
+
 
     
 ## 8일차 
