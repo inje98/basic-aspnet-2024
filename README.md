@@ -316,7 +316,7 @@ https://github.com/user-attachments/assets/bb688d12-e0d1-4eba-a240-fa577a2d4ff6
     - MVC 리뷰
         - Model은 개발자가 따로 만듦
         - View, Controller 폴더는 미리 만들어짐
-        - 웹브라우저에서 접근할 페이지를 만들려면
+        - 웹브라우저에서 접근할 페이지를 만들려면(작업순서)
             1. 해당 컨트롤러를 생성
             2. 뷰를 같이 생성할지 나중에 따로 만들지 선택
             3. 컨트롤러 이름과 동일한 뷰 폴더, 메서드 이름과 동일한 cshtml 페이지가 생성
@@ -325,6 +325,44 @@ https://github.com/user-attachments/assets/bb688d12-e0d1-4eba-a240-fa577a2d4ff6
 
 
 
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    1. Visual Studio에서 ASP.NET Core 웹앱(MVC) 프로젝트 생성
+    2. 부트스트랩 템플릿 사이트, 알맞은 템플릿 다운로드
+    3. wwwroot 폴더 밑에 템플릿 html, css, js, 이미지 등 위치
+    4. 템플릿 페이지에 공통적인 부분(Header, Bottom)은 _layout.cshtml에 위치
+    5. 중간에 페이지마다 변경되는 부분은 각 Views 밑에 포함
+    6. _layout.cshtml에 공통부분 옮기기
+    7. index.cshtml에 index.html에서 공통부분 외 영역 옮기기
+    8. index.cshtml 내용 수정
+    9. ResumeController.cs 생성, DB 관련된 설정이 없으면 모델, 뷰를 만들기 어려움
+    10. Resume란 폴더가 Views 아래에 만듦. Index.cshtml
+    11. resume.html에 네비게이션 아래 변경부분만 복사해서 index.cshtml에 붙여넣기
+    12. Project, Contact도 동일하게 적용 
+    13. Code First방식으로 Board테이블 생성
+    14. Nuget 패키지에서 Microsoft Entity Framework Core 패키지 검색, 설치
+    15. Microsoft.EntityFrameworkCore.Tools 검색 설치
+    16. Microsoft.EntityFrameworkCore.SqlServer 검색 설치
+    17. Models/Board.cs로 생성 엔티티 클래스 생성
+    18. appsettings.json에 DB 연결문자열 추가
+    19. Data/AppDbContext.cs 생성
+    20. Program.cs에 DBContext 종속성 주입
+    21. Nuget패키지 관리자 콘솔 > Add-Migration, Update-Database 진행
+    22. _layout.cshtml Board 링크 수정
+    23. /Controller/BoardController.cs를 생성(모델, 뷰 연결)
+        - Entity Framework를 사용하여 뷰가 포함된 MVC컨트롤러
+        <img src="https://raw.githubusercontent.com/inje98/basic-aspnet-2024/main/images/an0004.png" width="730">
+
+
+
+
+## 10일차
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    1. Board.cs 멤버속성 ModeDate -> ModDate
+    2. 테이블 삭제, 재생성
+    3. 게시판 관련된 화면 수정작업
+    4. 페이징!
+    5. 회원가입, 로그인....
+    6. 관리자모드/페이지
 
     - 필요 이론
     - 연습
