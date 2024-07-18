@@ -358,11 +358,35 @@ https://github.com/user-attachments/assets/bb688d12-e0d1-4eba-a240-fa577a2d4ff6
 ## 10일차
 - ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
     1. Board.cs 멤버속성 ModeDate -> ModDate
-    2. 테이블 삭제, 재생성
-    3. 게시판 관련된 화면 수정작업
-    4. 페이징!
-    5. 회원가입, 로그인....
-    6. 관리자모드/페이지
+        - BoardController.cs에서 ModeDate ->ModeDate 변경
+        - Views/Board/*.cshtml ModeDate ->ModeDate 변경
+    2. ASP.NET Core 템플릿으로 만들어주는 CRUD(Insert, Select, Update, Delete)
+    3. 테이블 삭제, 재생성
+    4. 게시판 관련된 화면 수정작업
+        - Views/Board/index.cshtml 게시판 리스트화면 수정
+        - Index.cshtml 테이블 틀 변경, 삭제, 수정, 상세버튼 삭제
+
+        - views/Board/Details.cshtml 부트스트랩 적용
+        - 수정, 삭제 등 버튼 디자인적용
+        - Views/Board/Create.cshtml
+
+    5. SSMS에서 Board테이블 Hit, RegDate, ModDate, Null 허용으로 변경
+
+    6. 웹사이트 동작 순서
+        1. https://localhost:7154/Board/Create 링크오픈
+        2. BoardController -> Create 액션메서드 발동
+        3. Submit -> BoardController -> Create 액션메서드 발동
+        4. Create 액션 메서드 내 로직처리 DB에 데이터입력
+        5. Models/Board.cs ModDate를 Datetime -> DateTime? 변경
+        6. Edit 동일, Create.cshtml 내용을 그대로 복사/붙여넣기 단, asp-action="Edit"로 변경!
+
+## 11일차
+- ASP.NET
+
+
+    5. 페이징!
+    6. 회원가입, 로그인....
+    7. 관리자모드/페이지
 
     - 필요 이론
     - 연습

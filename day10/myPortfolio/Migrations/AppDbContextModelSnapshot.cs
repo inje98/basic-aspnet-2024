@@ -37,7 +37,7 @@ namespace myPortfolio.Migrations
                     b.Property<int>("Hit")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ModeDate")
+                    b.Property<DateTime>("ModDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -60,7 +60,7 @@ namespace myPortfolio.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Boards");
+                    b.ToTable("Board");
                 });
 #pragma warning restore 612, 618
         }
