@@ -419,12 +419,18 @@ https://github.com/user-attachments/assets/bb688d12-e0d1-4eba-a240-fa577a2d4ff6
             ```
             3. Index() 내 로직 수정
             4. Views/Board/Index.cshtml
+         
+          
+
+    https://github.com/user-attachments/assets/b016c08d-7721-40bc-8e27-af3c9e3b0329
+
+
     5. 검색
         - FromSqlRaw() 메서드 변경
         - Views/Board/Index.csthml 화면코드 수정
 
     6. HTML 에디터
-        - Markdown ㅇ디터
+        - Markdown 에디터
         - simplemde(https://simplemde.com)
         - _layout.cshtml에 js, css 링크만 추가
         - 실제 사용페이지에서 특정 js만 실행
