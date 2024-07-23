@@ -1,4 +1,5 @@
-﻿@model myPortfolio.Models.Board
+﻿@using Westwind.AspNetCore.Markdown
+@model myPortfolio.Models.Board
 
 @{
     ViewData["Title"] = "Board";
@@ -31,7 +32,8 @@
             </div>
             <div class="row p-2">
                 <div class="col" style="min-height:200px">
-                    @Html.DisplayFor(Model => Model.Contents)
+                    @* @Html.DisplayFor(Model => Model.Contents) *@
+                    @Markdown.ParseHtmlString(Model.Contents)
                 </div>
             </div>
         </div>
@@ -41,10 +43,32 @@
             <a asp-controller="Board" asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-danger">
                 글 삭제
             </a>
+            @* <a class="btn btn-danger" onclick="return confirmDelete(@Model?.Id)">글 삭제</a> *@
             <a asp-asp-controller="Board" asp-action="Index" class="btn btn-success">
                 <i class="bi bi-file-earmark-text-fill"></i> 목록
             </a>
         </div>
     </div>
 </section>
+
+@section Scripts{
+    <script>
+        function confirmDelete(id) {
+            var result = confirm("삭제하시겠습니까?"); // 1(true) 0(false)
+
+            if (result) {
+                // alert(id);
+                // 삭제 POST를 실행
+                $.ajax.({
+                    // url: 'https://localhost:7211/Board/Delete/' + id //이렇게 쓰는건 구식방식(ip나 port번호가 바뀔때마다 변경해야됨)
+                    url: '@Url.Action("Delete")/' + id, // Url.Action --> ASP.NET Core 백엔드 액션 메서드 호출
+                    type: 'POST', //POST 액션 매서드 호출 
+                    success: function (data) {
+                        window.location.href = '@Url.Action("Index")'; // 문자열로 변경(중요!)
+                    }
+                })
+            }
+        }
+    </script>
+}
 

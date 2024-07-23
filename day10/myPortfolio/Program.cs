@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using myPortfolio.Data;
+using Westwind.AspNetCore.Markdown; // 마크다운 패키지 추가
 
 namespace myPortfolio
 {
@@ -10,12 +11,14 @@ namespace myPortfolio
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(
             builder.Configuration.GetConnectionString("MyConnection")
             ));
+
+            builder.Services.AddMarkdown();
+            builder.Services.AddMvc().AddApplicationPart(typeof(MarkdownPageProcessorMiddleware).Assembly);
 
             var app = builder.Build();
 
@@ -27,6 +30,7 @@ namespace myPortfolio
                 app.UseHsts();
             }
 
+            app.UseMarkdown(); // 마크다운 사용설정
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
