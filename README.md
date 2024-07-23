@@ -417,6 +417,12 @@ https://github.com/user-attachments/assets/bb688d12-e0d1-4eba-a240-fa577a2d4ff6
             ```
             3. Index() 내 로직 수정
             4. Views/Board/Index.cshtml
+         
+
+            https://github.com/user-attachments/assets/fb50a3a5-7da8-4cb6-bdba-7e50f2c40fcd
+
+
+  
     4. 검색
         - FromSqlRaw() 메서드 변경
         - Views/Board/Index.csthml 화면코드 수정
