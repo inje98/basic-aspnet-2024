@@ -390,13 +390,10 @@ https://github.com/user-attachments/assets/bb688d12-e0d1-4eba-a240-fa577a2d4ff6
     2. 글 조회수 올리기
     3. 게시글 삭제
         - @await RenderSectionAsync("Scripts", required: false) 얘가 각 페이지에 필요시 스크립트 영역을 만들어 써라는 의미
-<<<<<<< Updated upstream
         - AJAX 삭제는 나중에 다시!!!
     3. 페이징!
-=======
         - AJAX 삭제는 나중에 다시!!
     4. 페이징!
->>>>>>> Stashed changes
         - 웹사이트에서 가장 중요한 기능 중 하나
         - 한 페이지에 표시할 수 있는 글의 수를 제한
         - 스크롤 페이징, 번호 페이징
@@ -422,17 +419,7 @@ https://github.com/user-attachments/assets/bb688d12-e0d1-4eba-a240-fa577a2d4ff6
             ```
             3. Index() 내 로직 수정
             4. Views/Board/Index.cshtml
-<<<<<<< Updated upstream
-         
-
-            https://github.com/user-attachments/assets/fb50a3a5-7da8-4cb6-bdba-7e50f2c40fcd
-
-
-  
-    4. 검색
-=======
     5. 검색
->>>>>>> Stashed changes
         - FromSqlRaw() 메서드 변경
         - Views/Board/Index.csthml 화면코드 수정
 
