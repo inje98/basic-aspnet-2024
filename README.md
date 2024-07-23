@@ -390,7 +390,7 @@ https://github.com/user-attachments/assets/bb688d12-e0d1-4eba-a240-fa577a2d4ff6
     1. 글 조회수 올리기
     2. 게시글 삭제
         - @await RenderSectionAsync("Scripts", required: false) 얘가 각 페이지에 필요시 스크립트 영역을 만들어 써라는 의미
-        - AJAX 삭제는 나중에 다시!!
+        - AJAX 삭제는 나중에 다시!!!
     3. 페이징!
         - 웹사이트에서 가장 중요한 기능 중 하나
         - 한 페이지에 표시할 수 있는 글의 수를 제한
