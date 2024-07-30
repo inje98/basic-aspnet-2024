@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using myPortfolio.Models;
+using MyPortfolio.Models;
 
-namespace myPortfolio.Data
+namespace MyPortfolio.Data
 {
     public class AppDbContext : DbContext
     {
@@ -12,7 +12,7 @@ namespace myPortfolio.Data
 
         // CodeFirst로 테이블로 만들 엔티티 클래스 정의
         public DbSet<Board> Board { get; set; }
-        // DbContext 종속성 주입
-       
+        public DbSet<User> User { get; set; }
+        public DbSet<Project> Project { get; set; }
     }
 }

@@ -244,11 +244,13 @@ sup {
   top: -0.5em;
 }
 
+/* 마우스가 없을땐 밑줄없이 */
 a {
-  color: black;
+  color:  black;
   text-decoration: none;
 }
-a:hover {
+/* 마우스가 올라갔을때만 밑줄 */
+a:hover {  
   text-decoration: underline;
 }
 
